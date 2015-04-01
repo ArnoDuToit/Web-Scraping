@@ -16,4 +16,4 @@ When all the data has been collected then the data gets processed into informati
 
 
 ## Task B – Find movie release dates
-This task is a Python script that allows the user to search the imdb.com database for movie release dates.  This script makes use of Mechanize and BeatifullSoup to provide the search functionality and then the script searches the web site and the first 10 titles and release dates are printed.  When it is done printing the script will ask the user to search for another title.
+This task is a Python script that allows the user to search the http://imdb.com/ database for movie release dates.  This script makes use of Mechanize and BeatifullSoup to provide the search functionality and then the script searches the web site and the first 10 titles and release dates are printed.  When it is done printing the script will ask the user to search for another title.
