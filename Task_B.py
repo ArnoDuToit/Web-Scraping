@@ -22,8 +22,12 @@ url_SearchP1 = "http://www.imdb.com/find?ref_=nv_sr_fn&q="
 url_SearchP2 = "&s=all"
 url_Home = "http://www.imdb.com"
 
+count = 0
+
 # Initialise the script
 def main():
+    counter = 0
+    count = counter
     # Print a greeting message
     print "Enter the name of the Titles you want to search for: "
     # Call the searchTitle function
@@ -86,17 +90,20 @@ def getSearchResults(url):
 
     # Test if any titles were fount
     if len(titles) != 0:
+        counts = count
         # Loop through the list of titles
         for title in titles:
-            title['href'] = urlparse.urljoin(url_Home, title['href'])
-            # Print each title
-            getTitleInfo(title['href'])
+            if counts <= 10:
+                counts = counts + 1
+                title['href'] = urlparse.urljoin(url_Home, title['href'])
+                # Print each title
+                getTitleInfo(title['href'], counts)
 
     print "Above is all the search results:"
     main()
 
 # This function gets prints the titles and release dates
-def getTitleInfo(url):
+def getTitleInfo(url, count):
     # Declare 2 arrays
     itemTitle = []
     RelDate = []
@@ -127,9 +134,11 @@ def getTitleInfo(url):
 
     # Test if Failed stayed False
     if failed == False:
+        # Print the result
         # Loop through all the items in the Title array
         for x in range(0,len(itemTitle)):
-            # Print the result
+
+            print "Result: " + str(count)
             print "Title: " + itemTitle[x]
             print "Release Date: " + RelDate[x]
             print ""
